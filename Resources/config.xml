@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<crysvnlinkconfig>
+  <gamedll>TSRewind.dll</gamedll>
+
+  <link>
+    <source>GameSDK\Animations</source>
+    <target>Game\Animations</target>
+  </link>
+  <link>
+    <source>GameSDK\Difficulty</source>
+    <target>Game\Difficulty</target>
+  </link>
+  <link>
+    <source>GameSDK\Entities</source>
+    <target>Game\Entities</target>
+  </link>
+  <link>
+    <source>GameSDK\Levels\TSRewind</source>
+    <target>Game\Levels\TSRewind</target>
+  </link>
+  <link>
+    <source>GameSDK\Materials</source>
+    <target>Game\Materials</target>
+  </link>
+  <link>
+    <source>GameSDK\Objects</source>
+    <target>Game\Objects</target>
+  </link>
+  <link>
+    <source>GameSDK\Prefabs</source>
+    <target>Game\Prefabs</target>
+  </link>
+  <link>
+    <source>GameSDK\Scripts</source>
+    <target>Game\Scripts</target>
+  </link>
+  <link>
+    <source>GameSDK\Sounds</source>
+    <target>Game\Sounds</target>
+  </link>
+  <link>
+    <source>GameSDK\Textures</source>
+    <target>Game\Textures</target>
+  </link>
+  <link>
+    <source>GameSDK\Videos</source>
+    <target>Game\Videos</target>
+  </link>
+  <link>
+    <source>GameSDK\game.cfg</source>
+    <target>Game\game.cfg</target>
+  </link>
+  <link>
+    <source>editor.cfg</source>
+    <target>editor.cfg</target>
+  </link>
+  <link>
+    <source>system.cfg</source>
+    <target>system.cfg</target>
+  </link>
+</crysvnlinkconfig>

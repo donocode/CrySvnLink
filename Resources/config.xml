@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <crysvnlinkconfig>
-  <gamedll>TSRewind.dll</gamedll>
+  <!-- Uncomment this next line if you are specifying a dll to link -->
+  <!-- this will automatically link the 32 and 64 versions of the dll -->
+  <!--<gamedll>CryGameSDK.dll</gamedll>-->
 
+  <!-- Any number of links can be configured here -->
+  <!-- Links can be relative or absolute -->
+  <!-- Relative links will be combined with the relevant folder selected in app -->
+  <!-- Absolute links will be created exactly as specified -->
+  
+  <!-- For now absolute links are a good way of linking in reverse for example linking your svn folder to show the editor or launcher exes as they appear in the steam folder -->
+  
   <link>
     <source>GameSDK\Animations</source>
     <target>Game\Animations</target>

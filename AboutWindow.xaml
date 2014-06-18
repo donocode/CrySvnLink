@@ -6,17 +6,25 @@
         SizeToContent="Height"
         Width="300"
         DataContext="{Binding Path=AboutViewModel, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
     <StackPanel Margin="5">       
-        <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="5"/>
-        <TextBlock Text="{Binding Description}" Margin="5" TextWrapping="Wrap"/>
-        <TextBlock Text="{Binding Frameworks}" Margin="5" TextWrapping="Wrap"/>
-        <StackPanel Orientation="Horizontal" Margin="0,20">
-            <TextBlock Text="Please visit "/>
-            <TextBlock>
-                <Hyperlink NavigateUri="{Binding TsRewindUrl}" RequestNavigate="Hyperlink_RequestNavigate">
+        <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="5,5,5,0"/>
+        <TextBlock Text="{Binding AssemblyVersion}" FontSize="10" Margin="5,0,5,5"/>
+        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Frameworks}" TextWrapping="Wrap"/>
+        
+        <TextBlock Margin="5,10">
+            Please visit 
+            <Hyperlink NavigateUri="{Binding TsRewindUrl}" RequestNavigate="Hyperlink_RequestNavigate">
                     TimeSplitters Rewind
-                </Hyperlink>
-            </TextBlock>
-        </StackPanel>
+            </Hyperlink>
+             to learn more about the project
+        </TextBlock>
+        
     </StackPanel>
 </Window>

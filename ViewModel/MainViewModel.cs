@@ -12,6 +12,7 @@ using CrySvnLink.Data;
 using CrySvnLink.Messaging;
 using CrySvnLink.Helpers;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace CrySvnLink.ViewModel
 {
@@ -102,6 +103,11 @@ namespace CrySvnLink.ViewModel
             Links = new ObservableCollection<SymbolicLink>();
             RegisterForMessages();
             ReadConfigFile();
+
+            if (!PermissionHelper.HasAdminRights())
+            {
+                MessageBoxHelper.ShowNeedAdminMessage();
+            }
         }
 
         #region Commands
@@ -307,16 +313,19 @@ namespace CrySvnLink.ViewModel
             OutputHelper.Clear();
 
             //Create temp game dll links
-            String temp = Path.Combine("bin32", DllName);
-            SymbolicLink dllLink32 = new SymbolicLink();
-            dllLink32.Source = temp;
-            dllLink32.Target = temp;
-            temp = Path.Combine("bin64", DllName);
-            tempLinks.Insert(0, dllLink32);
-            SymbolicLink dllLink64 = new SymbolicLink();
-            dllLink64.Source = temp;
-            dllLink64.Target = temp;
-            tempLinks.Insert(1, dllLink64);
+            if (!String.IsNullOrWhiteSpace(DllName))
+            {
+                String temp = Path.Combine("bin32", DllName);
+                SymbolicLink dllLink32 = new SymbolicLink();
+                dllLink32.Source = temp;
+                dllLink32.Target = temp;
+                temp = Path.Combine("bin64", DllName);
+                tempLinks.Insert(0, dllLink32);
+                SymbolicLink dllLink64 = new SymbolicLink();
+                dllLink64.Source = temp;
+                dllLink64.Target = temp;
+                tempLinks.Insert(1, dllLink64);
+            }
 
             OutputHelper.AppendLine(String.Format("Beginning link creation: {0} Links", tempLinks.Count));
             int createdCount = 0;
@@ -383,6 +392,7 @@ namespace CrySvnLink.ViewModel
                 else
                 {
                     OutputHelper.AppendLine("Link unsuccessful");
+                    OutputHelper.AppendLine(String.Format("ERROR: \n{0}", Marshal.GetLastWin32Error()));
                 }
             }
 

@@ -10,7 +10,7 @@ namespace CrySvnLink.Helpers
 {
     public class MkLinkHelper
     {
-        [DllImport("kernel32.dll")]
+        [DllImport("kernel32.dll", SetLastError = true)]
         [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.I1)]
         static extern bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName, LinkType dwFlags);
 

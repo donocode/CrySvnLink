@@ -60,6 +60,14 @@ namespace CrySvnLink.Helpers
             return MkLinkMessageResult.Cancel;
         }
 
+        public static void ShowNeedAdminMessage()
+        {
+            String caption = "Need Administrator Privelidges";
+            String message = "This application needs administrator privelidges to create links successfully, please close the application and relaunch as adminstrator.";
+
+            MessageBox.Show(message, caption, MessageBoxButton.OK);
+        }
+
     }
 
     public enum MkLinkMessageResult

@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow"
         MaxWidth="800"
-        MaxHeight="800"
+        MaxHeight="600"
         DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -30,6 +30,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="1" HorizontalAlignment="Center">
@@ -62,11 +63,12 @@
                     Command="{Binding Path=BrowseCommand}" CommandParameter="1"/>
         </Grid>
         
-        <Grid Grid.Row="2" Margin="0,5">
+        <Grid Grid.Row="2" Margin="0,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
             <TextBlock Text="Output"/>
             <Button Content="Create Links"
                     HorizontalAlignment="Right"
@@ -78,6 +80,8 @@
                      Text="{Binding Path=Output}"
                      IsReadOnly="True" Margin="5" Grid.Row="1"/>
         </Grid>
+        
+        <Button Grid.Row="3" Content="About" HorizontalAlignment="Right" Command="{Binding AboutCommand}"/>
         
     </Grid>
 </Window>

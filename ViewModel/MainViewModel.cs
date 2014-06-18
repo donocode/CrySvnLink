@@ -205,6 +205,32 @@ namespace CrySvnLink.ViewModel
 
         #endregion
 
+        #region AboutCommand
+
+        private RelayCommand<Int32> _aboutCommand;
+
+        public RelayCommand<Int32> AboutCommand
+        {
+            get
+            {
+                if (_aboutCommand == null)
+                {
+                    _aboutCommand = new RelayCommand<int>(AboutCommand_Executed);
+                }
+
+                return _aboutCommand;
+            }
+        }
+
+        private void AboutCommand_Executed(int buttonId)
+        {
+            AboutWindow wnd = new AboutWindow();
+            wnd.Owner = App.Current.MainWindow;
+            wnd.ShowDialog();
+        }
+
+        #endregion
+
         #endregion
 
         #region Methods
